@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3amplifyworkshopstorage80b03669",
+  "bucketName": "amplifyworkshop-storage-80b03669",
+  "policyUUID": "d6a982b3",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

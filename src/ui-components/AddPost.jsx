@@ -2,8 +2,8 @@ import { useState } from "react"
 import { uploadData } from 'aws-amplify/storage';
 import { v4 as uuidv4 } from 'uuid';
 import { TextAreaField, Button } from '@aws-amplify/ui-react';
-import { generateClient } from "aws-amplify/api";
 import './AddPost.css';
+import * as mutations from "../graphql/mutations";
 
 export default function AddPost() {
     const [text, setText] = useState("")
@@ -16,18 +16,20 @@ export default function AddPost() {
     }
 
     async function newPost() {
+        const filename = generateUniqueFileName();
+
         try {
-             // TODO: UPLOAD FILE
-
-            
-            // TODO: Identify celebrities
-            
-            
-            // TODO: CREATE POST
-
+            await uploadData({
+                key: filename,
+                data: file,
+                options: {
+                    contentType: file.type
+                }
+            });
         } catch (error) {
-            console.log(error);
+            console.log("Error uploading file: ", error);
         }
+
     }
 
     return (

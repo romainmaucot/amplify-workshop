@@ -1,0 +1,6 @@
+type PostModel @model @auth(rules: [{allow: owner}, {allow: public, operations: [read]}]) {
+  id: ID!
+  text: String!
+  image: String
+}
+ 
